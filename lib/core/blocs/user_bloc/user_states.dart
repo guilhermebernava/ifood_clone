@@ -2,13 +2,13 @@ import 'package:ifood_clone/core/domain/entities/user.dart';
 
 abstract class UserState {}
 
-class Logged extends UserState {
+class LoggedState extends UserState {
   final User user;
 
-  Logged(this.user);
+  LoggedState(this.user);
 }
 
-class NotLogged extends UserState {}
+class NotLoggedState extends UserState {}
 
 class ErrorState extends UserState {
   final String message;
@@ -16,4 +16,4 @@ class ErrorState extends UserState {
   ErrorState(this.message);
 }
 
-class Loading extends UserState {}
+class LoadingState extends UserState {}

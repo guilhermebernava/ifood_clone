@@ -10,16 +10,17 @@ import 'package:ifood_clone/core/domain/entities/user_finnancial_information.dar
 //segundo é o que ele vai mandar para fora
 class UserBloc extends Bloc<UserEvent, UserState> {
   //precisamos passar o STATE inicial pelo construtor
-  UserBloc() : super(NotLogged()) {
+  UserBloc() : super(NotLoggedState()) {
     //depois precisamos criar os ON com cada EVENTO que queremos utilizar.
     on<LoginEvent>((event, emit) async {
-      emit(Loading());
+      //vai EMITIR esse state para o BLOC
+      emit(LoadingState());
       if (event.login.email != 'g') {
         emit(ErrorState('E-mail ou Senha inválida'));
       } else {
-        await Future.delayed(const Duration(seconds: 10));
+        await Future.delayed(const Duration(seconds: 2));
         emit(
-          Logged(
+          LoggedState(
             User(
               email: 'teste',
               name: '',
@@ -42,7 +43,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     //outro evento
     on<LogoutEvent>((_, emit) {
-      emit(NotLogged());
+      emit(NotLoggedState());
     });
   }
 }
