@@ -26,8 +26,18 @@ class LocationRepository implements ILocationRepository {
   }
 
   @override
-  Future<Either<LocationExecption, Address>> getLocationFromAddress() {
-    // TODO: implement getLocationFromAddress
-    throw UnimplementedError();
+  Future<Either<LocationExecption, Address>> getLocationFromAddress(
+      String location) async {
+    try {
+      final address = await locationDatasource.getLocationFromAddress(location);
+
+      if (address == null) {
+        return Left(LocationExecption(message: 'Could not get your location'));
+      }
+
+      return Right(address);
+    } catch (e) {
+      return Left(LocationExecption(message: e.toString()));
+    }
   }
 }

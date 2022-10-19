@@ -25,6 +25,6 @@ class HomePageUseCase implements IHomePageUseCase {
       return;
     }
 
-    print(searchAddress.address.value);
+    locationBloc.add(GetLocationFromAddress(searchAddress));
   }
 }

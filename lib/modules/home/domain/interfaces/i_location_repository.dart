@@ -8,5 +8,6 @@ abstract class ILocationRepository {
   ILocationRepository({required this.locationDatasource});
 
   Future<Either<LocationExecption, Address>> getCurrentLocation();
-  Future<Either<LocationExecption, Address>> getLocationFromAddress();
+  Future<Either<LocationExecption, Address>> getLocationFromAddress(
+      String location);
 }

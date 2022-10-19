@@ -4,6 +4,7 @@ import 'package:ifood_clone/core/widgets/loading_widget.dart';
 import 'package:ifood_clone/modules/home/domain/blocs/location/location_event.dart';
 import 'package:ifood_clone/modules/home/domain/blocs/location/location_states.dart';
 import 'package:ifood_clone/modules/home/presenters/widgets/arrow_down_widget.dart';
+import 'package:ifood_clone/modules/home/presenters/widgets/location_error_widget.dart';
 
 class StreetWidget extends StatelessWidget {
   final Size size;
@@ -47,7 +48,10 @@ class StreetWidget extends StatelessWidget {
           );
         }
 
-        return const Text('ERROR');
+        return Padding(
+          padding: EdgeInsets.symmetric(vertical: size.height * 0.04),
+          child: const LocationErrorWidget(),
+        );
       },
     );
   }

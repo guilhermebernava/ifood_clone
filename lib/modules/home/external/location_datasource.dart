@@ -27,9 +27,18 @@ class LocationDatasource implements ILocationDatasource {
   }
 
   @override
-  Future<Address?> getLocationFromAddress(String address) {
-    //TODO implementar essa feature
-    throw UnimplementedError();
+  Future<Address?> getLocationFromAddress(String address) async {
+    final geoCode = geocode.GeoCode();
+    final coordinates = await geoCode.forwardGeocoding(address: address);
+    final data = await geoCode.reverseGeocoding(
+      latitude: coordinates.latitude!,
+      longitude: coordinates.longitude!,
+    );
+
+    return Address(
+      street: '${data.streetAddress}, ${data.streetNumber}',
+      zipCode: data.postal ?? '',
+    );
   }
 
   Future<bool> _validateAccessToLocation(Location location) async {

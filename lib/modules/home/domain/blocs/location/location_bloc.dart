@@ -30,5 +30,17 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     return emit(SucessState(address));
   }
 
-  Future<void> _getLocationFromAddress(event, emit) async {}
+  Future<void> _getLocationFromAddress(
+      GetLocationFromAddress event, emit) async {
+    final result = await _locationRepository.getLocationFromAddress(
+      event.searchAddress.address.value,
+    );
+
+    if (result.isLeft()) {
+      return emit(LocationErrorState());
+    }
+
+    final address = result.right();
+    return emit(SucessState(address));
+  }
 }
