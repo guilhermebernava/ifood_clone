@@ -6,10 +6,16 @@ import 'package:ifood_clone/modules/home/domain/interfaces/i_location_repository
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
   final ILocationRepository _locationRepository;
-  LocationBloc(ILocationRepository locationRepository)
-      : _locationRepository = locationRepository,
-        super(LocationLoadingState()) {
+
+  LocationBloc(
+    ILocationRepository locationRepository,
+  )   : _locationRepository = locationRepository,
+        super(
+          LocationLoadingState(),
+        ) {
     on<GetLocation>(_getLocation);
+
+    on<GetLocationFromAddress>(_getLocationFromAddress);
   }
 
   Future<void> _getLocation(event, emit) async {
@@ -23,4 +29,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     final address = result.right();
     return emit(SucessState(address));
   }
+
+  Future<void> _getLocationFromAddress(event, emit) async {}
 }

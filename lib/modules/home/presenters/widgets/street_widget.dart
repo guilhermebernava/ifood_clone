@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ifood_clone/core/widgets/loading_widget.dart';
 import 'package:ifood_clone/modules/home/domain/blocs/location/location_event.dart';
 import 'package:ifood_clone/modules/home/domain/blocs/location/location_states.dart';
+import 'package:ifood_clone/modules/home/presenters/widgets/arrow_down_widget.dart';
 
 class StreetWidget extends StatelessWidget {
   final Size size;
@@ -18,6 +19,7 @@ class StreetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    locationBloc.add(GetLocation());
     return BlocBuilder(
       bloc: locationBloc,
       builder: (_, LocationState bloc) {
@@ -38,11 +40,7 @@ class StreetWidget extends StatelessWidget {
                   const SizedBox(
                     width: 10,
                   ),
-                  const Icon(
-                    Icons.keyboard_arrow_down,
-                    color: Colors.red,
-                    size: 30,
-                  )
+                  const ArrowDownWidget(),
                 ],
               ),
             ),
