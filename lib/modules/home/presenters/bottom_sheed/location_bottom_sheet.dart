@@ -5,6 +5,8 @@ import 'package:ifood_clone/modules/home/domain/interfaces/i_home_page_use_case.
 import 'package:ifood_clone/modules/home/presenters/widgets/arrow_down_widget.dart';
 import 'package:ifood_clone/modules/home/presenters/widgets/my_location_widget.dart';
 import 'package:ifood_clone/modules/home/presenters/widgets/search_input.dart';
+import 'package:ifood_clone/modules/home/text_styles/home_text_styles.dart';
+import 'package:ifood_clone/themes/app_colors/app_colors.dart';
 
 class LocationBottomSheet extends StatelessWidget {
   final IHomePageUseCase homeUseCase;
@@ -19,7 +21,7 @@ class LocationBottomSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: size.height - 50,
-      color: Colors.white,
+      color: AppColors.white,
       child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Column(
@@ -34,6 +36,7 @@ class LocationBottomSheet extends StatelessWidget {
               child: AllScreenText(
                 size: size,
                 text: 'Onde você quer receber seu pedido ?',
+                textStyle: HomeTextStyles.bottomSheetTitle,
               ),
             ),
             Form(

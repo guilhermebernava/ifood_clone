@@ -5,6 +5,7 @@ import 'package:ifood_clone/modules/home/domain/blocs/location/location_event.da
 import 'package:ifood_clone/modules/home/domain/blocs/location/location_states.dart';
 import 'package:ifood_clone/modules/home/presenters/widgets/arrow_down_widget.dart';
 import 'package:ifood_clone/modules/home/presenters/widgets/location_error_widget.dart';
+import 'package:ifood_clone/modules/home/text_styles/home_text_styles.dart';
 
 class StreetWidget extends StatelessWidget {
   final Size size;
@@ -28,7 +29,7 @@ class StreetWidget extends StatelessWidget {
           return const LoadingWidget();
         }
 
-        if (bloc is SucessState) {
+        if (bloc is LocationSucessState) {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: size.height * 0.04),
             child: GestureDetector(
@@ -37,9 +38,12 @@ class StreetWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(bloc.address.street),
+                  Text(
+                    bloc.address.street,
+                    style: HomeTextStyles.homeTitle,
+                  ),
                   const SizedBox(
-                    width: 10,
+                    width: 20,
                   ),
                   const ArrowDownWidget(),
                 ],

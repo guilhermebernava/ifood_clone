@@ -6,6 +6,7 @@ import 'package:ifood_clone/modules/home/infra/location_repository.dart';
 
 void main() {
   final locationRepository = LocationRepository(LocationDatasource());
+
   test('It should not work because the bindings is not initialized', () async {
     final result = await locationRepository.getCurrentLocation();
 

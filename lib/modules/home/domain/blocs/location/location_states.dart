@@ -6,8 +6,8 @@ class LocationLoadingState implements LocationState {}
 
 class LocationErrorState implements LocationState {}
 
-class SucessState implements LocationState {
+class LocationSucessState implements LocationState {
   final Address address;
 
-  SucessState(this.address);
+  LocationSucessState(this.address);
 }

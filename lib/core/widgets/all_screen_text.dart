@@ -3,10 +3,13 @@ import 'package:flutter/material.dart';
 class AllScreenText extends StatelessWidget {
   final String text;
   final Size size;
+  final TextStyle? textStyle;
+
   const AllScreenText({
     super.key,
     required this.size,
     required this.text,
+    this.textStyle,
   });
 
   @override
@@ -16,6 +19,7 @@ class AllScreenText extends StatelessWidget {
       child: Text(
         text,
         textAlign: TextAlign.center,
+        style: textStyle,
       ),
     );
   }

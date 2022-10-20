@@ -27,7 +27,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     }
 
     final address = result.right();
-    return emit(SucessState(address));
+    return emit(LocationSucessState(address));
   }
 
   Future<void> _getLocationFromAddress(
@@ -41,6 +41,6 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     }
 
     final address = result.right();
-    return emit(SucessState(address));
+    return emit(LocationSucessState(address));
   }
 }
