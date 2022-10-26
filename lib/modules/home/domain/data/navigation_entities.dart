@@ -6,10 +6,7 @@ class NavigationEntities {
     NavigationEntity(
       icon: Icons.home,
       label: 'Home',
-      screen: TabBarView(
-        controller: _tabController,
-        children: widget.homeUseCase.tabEntities.map((e) => e.view).toList(),
-      ),
+      screen: Container(),
     ),
     NavigationEntity(
       icon: Icons.abc,
