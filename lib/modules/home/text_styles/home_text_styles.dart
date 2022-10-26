@@ -9,6 +9,11 @@ class HomeTextStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static final tabLabelStyle = GoogleFonts.openSans(
+    color: AppColors.black,
+    fontSize: 16,
+  );
+
   static final bottomSheetTitle = GoogleFonts.openSans(
     color: AppColors.black,
     fontSize: 24,
